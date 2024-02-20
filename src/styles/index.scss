@@ -1,0 +1,86 @@
+// 全局 CSS 变量
+@import "./variables.css";
+// Transition
+@import "./transition.scss";
+// Element Plus
+@import "./element-plus.scss";
+// 注册多主题
+@import "./theme/register.scss";
+// mixin
+@import "./mixins.scss";
+// swiper
+@import "./swiper.scss";
+
+// 业务页面几乎都应该在根元素上挂载 class="app-container"，以保持页面美观
+.app-container {
+  padding: 20px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: var(--v3-body-bg-color);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
+    sans-serif;
+  @extend %scrollbar;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+a,
+a:focus,
+a:hover {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+html.gray {
+  filter: grayscale(100%)
+}
+
+
+.w-e-image-container {
+  width: 700px !important;
+  height: auto !important;
+}
+
+.w-e-image-container img {
+  width: 100% !important;
+}
+
+.w-e-text-container p:has(img, video, audio, iframe, embed, object, svg),
+.editor-content-view p:has(img, video, audio, iframe, embed, object, svg) {
+  text-align: center !important;
+}
+
+
+.editor-toolbar-fixed {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 999 !important;
+  right: 0 !important;
+  margin: 0 10px !important;
+  border: 1px solid #ccc;
+}

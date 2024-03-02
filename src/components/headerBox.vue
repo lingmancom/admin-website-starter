@@ -14,7 +14,7 @@ console.log(dynamicLogo.value, dynamicTop.value)
 const topLinkList = computed(() => frontGlobal.homeData.topLink || [])
 
 function jumpToBackground() {
-  router.push({ name: 'permissionManage' })
+  router.push('/system')
 }
 
 function handleOuterLink(item) {

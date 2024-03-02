@@ -126,25 +126,4 @@ export const asyncRoutes: RouteRecordRaw[] = [
     },
   },
 
-  {
-    path: '/check',
-    component: Layout,
-    children: [
-      {
-        path: 'article_check',
-        name: 'article_check',
-
-        component: () => import('@/views/check/article.vue'),
-        meta: { title: '文章审核', icon: 'el-icon-s-marketing', svgIcon: 'DocumentChecked', badge: true },
-      },
-    ],
-    name: 'check',
-    meta: {
-      title: '审核管理',
-      icon: 'nested',
-      menu: 'article',
-      roles: ['admin'],
-    },
-  },
-
 ]

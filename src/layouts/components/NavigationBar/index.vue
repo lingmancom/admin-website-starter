@@ -24,8 +24,6 @@ const userStore = useUserStore()
 const { sidebar, device } = storeToRefs(appStore)
 const { layoutMode, showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToRefs(settingsStore)
 
-const isDev = import.meta.env.MODE === 'development'
-
 const isTop = computed(() => layoutMode.value === 'top')
 const isMobile = computed(() => device.value === DeviceEnum.Mobile)
 
@@ -39,27 +37,6 @@ function logout() {
   userStore.logout()
   toLogin()
 }
-
-function setOnlinePort() {
-  localStorage.setItem('port', 'http://lm:5502')
-  ElMessage.success('线上接口设置成功')
-}
-
-function setLocalPort() {
-  localStorage.setItem('port', 'http://hekui:8080')
-  ElMessage.success('本地接口设置成功')
-}
-
-async function cleanEs() {
-  ElMessageBox.confirm('确认清除es吗？', '提示', {
-    confirmButtonText: '确定',
-    cancelButtonText: '取消',
-    type: 'warning',
-  }).then(async () => {
-    await Api.clearEs()
-    ElMessage.success('正在更新中，需要耐心等待，稍后页面查看')
-  }).catch(() => { })
-}
 </script>
 
 <template>
@@ -67,14 +44,6 @@ async function cleanEs() {
     <Hamburger v-if="!isTop || isMobile" :is-active="sidebar.opened" class="hamburger" @toggle-click="toggleSidebar" />
     <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" />
     <Sidebar v-if="isTop && !isMobile" class="sidebar" />
-    <div v-if="isDev" class="flex items-center">
-      <el-button type="primary" size="small" @click="setOnlinePort">
-        线上接口
-      </el-button>
-      <el-button type="primary" size="small" @click="setLocalPort">
-        本地接口
-      </el-button>
-    </div>
     <div class="right-menu">
       <SearchMenu v-if="showSearchMenu" class="right-menu-item" />
       <Screenfull v-if="showScreenfull" class="right-menu-item" />
@@ -87,9 +56,6 @@ async function cleanEs() {
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="cleanEs()">
-              <span style="display: block">更新搜索</span>
-            </el-dropdown-item>
             <el-dropdown-item @click="userStore.passwordDialogVisible = true">
               <span style="display: block">修改密码</span>
             </el-dropdown-item>

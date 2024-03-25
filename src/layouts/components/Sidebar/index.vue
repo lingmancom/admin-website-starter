@@ -63,7 +63,7 @@ const hiddenScrollbarVerticalBar = computed(() => {
         :default-active="activeMenu" :collapse="isCollapse && !isTop" :background-color="backgroundColor"
         :text-color="textColor" :active-text-color="activeTextColor" :unique-opened="true" :collapse-transition="false"
         :mode="isTop && !isMobile ? 'horizontal' : 'vertical'"
-        class="pb-100"
+        class="pb-100" style="transform: translate3d(0, 0, 0);"
       >
         <SidebarItem
           v-for="item in permissionStore.routes" :key="item.path" :item="item" :base-path="item.path"

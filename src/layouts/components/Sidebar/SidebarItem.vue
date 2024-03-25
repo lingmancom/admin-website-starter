@@ -65,7 +65,7 @@ function resolvePath(routePath: string) {
 
 <template>
   <div
-    v-if="!props.item.meta?.hidden"
+    v-if="!props.item.meta?.hidden" style="transform: translate3d(0, 0, 0)"
     :class="{ 'simple-mode': props.isCollapse && !isTop, 'first-level': props.isFirstLevel }"
   >
     <template v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children">

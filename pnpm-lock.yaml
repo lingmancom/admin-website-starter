@@ -27,8 +27,8 @@ dependencies:
     specifier: ^5.4.3
     version: 5.5.0
   element-plus:
-    specifier: 2.5.2
-    version: 2.5.2(vue@3.4.15)
+    specifier: 2.6.3
+    version: 2.6.3(vue@3.4.15)
   husky:
     specifier: 8.0.3
     version: 8.0.3
@@ -4395,8 +4395,8 @@ packages:
     resolution: {integrity: sha512-+1u3F/XPNIdUwv8i1lDxHAxCvNNU0QIqgb1Ycn+Jnng8ITzWSvUqixRSM7NOazJuwhf65IV17f/VbKj8DmL26A==}
     dev: true
 
-  /element-plus@2.5.2(vue@3.4.15):
-    resolution: {integrity: sha512-0Xbihy5CvpdH+OZeRPnZlfkbZS8uyLvHJiALehvw6n7nvHGrujCmdiw8NXvYhkLpRtwue/N6oBfAvMJvQSPoNA==}
+  /element-plus@2.6.3(vue@3.4.15):
+    resolution: {integrity: sha512-U4L/mr+1r+EmAUYUHrs0V/8hHMdBGP07rPymSC72LZCN4jK1UwygQYICegTQ5us4mxeqBvW6wfoEfo003fwCqw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

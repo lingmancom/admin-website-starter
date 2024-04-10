@@ -23,7 +23,7 @@
     "axios": "1.6.5",
     "dayjs": "1.11.10",
     "echarts": "^5.4.3",
-    "element-plus": "2.5.2",
+    "element-plus": "2.6.3",
     "husky": "8.0.3",
     "image-conversion": "^2.1.1",
     "js-cookie": "3.0.5",

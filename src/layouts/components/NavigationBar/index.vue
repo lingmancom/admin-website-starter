@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { UserFilled } from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus'
 import Hamburger from '../Hamburger/index.vue'
 import Breadcrumb from '../Breadcrumb/index.vue'
 import Sidebar from '../Sidebar/index.vue'

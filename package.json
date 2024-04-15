@@ -13,7 +13,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit",
     "prepare": "husky install && vite optimize",
-    "release": "git add . && npx bumpp patch -y --commit --push --all --tag -r",
+    "release": "git add . && npx bumpp patch -y --commit --push --all --tag",
     "test": "vitest"
   },
   "dependencies": {

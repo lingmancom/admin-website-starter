@@ -57,6 +57,11 @@ watchEffect(() => {
     <RightPanel v-if="showSettings">
       <Settings />
     </RightPanel>
+
+    <!-- 版本号 -->
+    <div class="fixed bottom-0 left-0 z-9999999 pl-10 pb-10 c-#ffffff55 text-14">
+      {{ appStore.versions.clientVersion }} - {{ appStore.versions.serverVersion }}
+    </div>
   </div>
 </template>
 

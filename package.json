@@ -1,7 +1,7 @@
 {
   "name": "admin-starter",
   "type": "module",
-  "version": "4.2.3",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build:stage": "vue-tsc --noEmit && vite build --mode staging",
@@ -13,6 +13,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "vue-tsc --noEmit",
     "prepare": "husky install && vite optimize",
+    "release": "git add . && npx bumpp patch -y --commit --push --all --tag -r",
     "test": "vitest"
   },
   "dependencies": {

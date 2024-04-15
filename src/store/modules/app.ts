@@ -1,5 +1,6 @@
 import { reactive, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
+import { version } from '../../../package.json'
 import { getSidebarStatus, setSidebarStatus } from '@/utils/cache/local-storage'
 import { DeviceEnum, SIDEBAR_CLOSED, SIDEBAR_OPENED } from '@/constants/app-key'
 
@@ -14,6 +15,18 @@ function handleSidebarStatus(opened: boolean) {
 }
 
 export const useAppStore = defineStore('app', () => {
+  const versions = reactive({
+    serverVersion: '',
+    clientVersion: version,
+  })
+
+  async function loadVersion() {
+    const res = await Api.getVersion()
+    versions.serverVersion = res
+  }
+
+  loadVersion()
+
   /** 侧边栏状态 */
   const sidebar: Sidebar = reactive({
     opened: getSidebarStatus() !== SIDEBAR_CLOSED,
@@ -43,5 +56,5 @@ export const useAppStore = defineStore('app', () => {
     device.value = value
   }
 
-  return { device, sidebar, toggleSidebar, closeSidebar, toggleDevice }
+  return { versions, device, sidebar, toggleSidebar, closeSidebar, toggleDevice }
 })

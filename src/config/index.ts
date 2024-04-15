@@ -1,35 +1,35 @@
 export enum TypeMeta {
-  '计算机' = 1,
-  '电子设备类' = 2,
-  '图书资料类' = 3,
-  '文印资料类' = 4,
+  计算机 = 1,
+  电子设备类 = 2,
+  图书资料类 = 3,
+  文印资料类 = 4,
 }
 
 export enum MessageTypeMeta {
-  '计算机相关' = '1',
-  '电子设备类相关' = '2',
-  '图书资料类相关' = '3',
-  '文印资料类相关' = '4',
-  '用户相关' = '5',
-  'IP地址申请' = '6',
+  计算机相关 = '1',
+  电子设备类相关 = '2',
+  图书资料类相关 = '3',
+  文印资料类相关 = '4',
+  用户相关 = '5',
+  IP地址申请 = '6',
 }
 
 // address_book-通讯录，special-专题，article-文章，friendship_link-友情链接，organ-机关动态，big_banner-大banner，small_banner-小banner, news-要闻
 export enum KindMeta {
-  '文章' = 'article',
-  '友情链接' = 'friendship_link',
-  '节日喜庆' = 'holiday',
-  '导航' = 'navigation',
-  '主页面' = 'main',
-  '通知公告' = 'notice',
-  '政策法规' = 'policy',
-  '学习培训' = 'learn',
-  '政策答疑' = 'question',
-  '财经纪律' = 'finance',
-  '顶部链接' = 'top',
-  '底部链接' = 'bottom',
-  '模版下载' = 'template',
-  '人员工资' = 'salary',
+  文章 = 'article',
+  友情链接 = 'friendship_link',
+  节日喜庆 = 'holiday',
+  导航 = 'navigation',
+  主页面 = 'main',
+  通知公告 = 'notice',
+  政策法规 = 'policy',
+  学习培训 = 'learn',
+  政策答疑 = 'question',
+  财经纪律 = 'finance',
+  顶部链接 = 'top',
+  底部链接 = 'bottom',
+  模版下载 = 'template',
+  人员工资 = 'salary',
 }
 
 export enum SalaryMeta {
@@ -156,12 +156,12 @@ export enum SalaryMeta {
 
 // draft:草稿 publish:发布
 export enum PublishStatusMeta {
-  '草稿' = 'draft',
-  '发布待审核' = 'publish',
-  '审核通过' = 'pass',
-  '审核拒绝' = 'reject',
-  '删除' = 'delete',
-  '预览' = 'preview',
+  草稿 = 'draft',
+  发布待审核 = 'publish',
+  审核通过 = 'pass',
+  审核拒绝 = 'reject',
+  删除 = 'delete',
+  预览 = 'preview',
 }
 
 // FOLDER("folder","文件夹"),
@@ -177,15 +177,15 @@ export enum PublishStatusMeta {
 // PDF("pdf","pdf文件"),
 
 export enum FileKindMeta {
-  '文件夹' = 'folder',
-  '文件' = 'file',
-  'PPT文件' = 'ppt',
-  'DOC文件' = 'doc',
-  'JPG文件' = 'jpg',
-  '未知文件类型' = 'unknown',
-  'TXT文件' = 'txt',
-  '视频文件' = 'mp4',
-  '压缩文件' = 'zip',
-  'excel文件' = 'xlsx',
-  'pdf文件' = 'pdf',
+  文件夹 = 'folder',
+  文件 = 'file',
+  PPT文件 = 'ppt',
+  DOC文件 = 'doc',
+  JPG文件 = 'jpg',
+  未知文件类型 = 'unknown',
+  TXT文件 = 'txt',
+  视频文件 = 'mp4',
+  压缩文件 = 'zip',
+  excel文件 = 'xlsx',
+  pdf文件 = 'pdf',
 }

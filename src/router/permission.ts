@@ -14,21 +14,8 @@ import { toLogin } from '@/utils'
 NProgress.configure({ showSpinner: false })
 
 const whiteList = [
-  '/home',
-  '/commonPage',
-  '/policyAnswering',
-  '/policyAnsweringDetail',
-  '/templateDownloadFront',
-  '/website-navigation',
-  '/newsStatistics',
-  '/agencies-trends',
-  '/article-show',
-  '/system/permissionManage',
-  '/more',
-  '/file',
-  '/template1',
-  '/template2',
-  '/template3',
+  '/login',
+  '/test',
 ]
 
 router.beforeEach(async (to, _from, next) => {

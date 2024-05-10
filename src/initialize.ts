@@ -4,7 +4,7 @@ import { Boot } from '@wangeditor/editor'
 import attachmentModule from '@wangeditor/plugin-upload-attachment'
 import { useUserStore } from '@/store/modules/user'
 
-cfg.request = {
+Object.assign(cfg.request , {
   getApiRoot: () => {
     return window.__BASE_API
   },
@@ -20,7 +20,7 @@ cfg.request = {
     accountStore.logout()
   },
   showErrorToast: (msg: string) => ElMessage.error(msg),
-}
+})
 
 // wangeditor 配置
 Boot.registerMenu({

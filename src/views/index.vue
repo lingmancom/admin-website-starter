@@ -1,6 +1,5 @@
 <script setup name="home" lang="ts">
 import mainBox from './home/components/mainBox.vue'
-import { useGlobalStore } from '@/store/modules/front-global'
 
 // const globalStore = useGlobalDataStore()
 const globalStore = useGlobalStore()

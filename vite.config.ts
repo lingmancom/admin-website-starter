@@ -15,7 +15,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Inspect from 'vite-plugin-inspect'
 import Inspector from '@djie/vite-plugin-vue-inspector'
 import legacy from '@vitejs/plugin-legacy'
-import { LingManWebAutoImport } from 'lingman/resolve'
+import { LingManVueAutoImport } from 'lingman/vue'
 import LingMan from 'lingman/vite'
 
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
@@ -33,7 +33,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       VueSetupExtend(),
 
       AutoImport({
-        imports: ['vue', '@vueuse/core', 'pinia', { 'element-plus': ['ElMessageBox', 'ElMessage'] }, 'vue-router', LingManWebAutoImport()],
+        imports: ['vue', '@vueuse/core', 'pinia', { 'element-plus': ['ElMessageBox', 'ElMessage'] }, 'vue-router', LingManVueAutoImport()],
         resolvers: [
           ElementPlusResolver(),
         ],
@@ -41,6 +41,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
         dirs: [
           'src/api',
           'src/store/modules',
+          'src/composables',
           'src/hooks',
         ],
       }),
@@ -140,7 +141,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
     },
     optimizeDeps: {
       include: [
-        'lingman/web',
+        'lingman/vue',
         'vue',
         'sass',
         'mitt',

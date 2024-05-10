@@ -53,6 +53,8 @@ const tipLineWidth = computed(() => {
 const hiddenScrollbarVerticalBar = computed(() => {
   return layoutMode.value === 'top' ? 'none' : 'block'
 })
+
+console.log('sidebar', permissionStore.routes)
 </script>
 
 <template>

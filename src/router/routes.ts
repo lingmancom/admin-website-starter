@@ -46,16 +46,16 @@ export const constantRoutes: RouteRecordRaw[] = [
   },
   {
     path: '/',
-    component: () => import('@/views-front/index.vue'),
+    component: () => import('@/views/index.vue'),
     meta: {
       hidden: true,
     },
-    redirect: '/home',
+    redirect: '/test',
     children: [
       {
         path: 'home',
         name: 'home',
-        component: () => import('@/views-front/home/home.vue'),
+        component: () => import('@/views/home/home.vue'),
         meta: {},
       },
     ],
@@ -84,10 +84,14 @@ export const constantRoutes: RouteRecordRaw[] = [
     meta: {
       title: '系统管理',
       svgIcon: 'setting',
-      roles: ['admin'],
     },
     children: [
-
+      {
+        path: '/test',
+        name: 'test',
+        component: () => import('@/views/test/test.vue'),
+        meta: { title: '测试', icon: 'el-icon-s-marketing', svgIcon: 'DocumentChecked', badge: true },
+      },
     ],
   },
 
@@ -97,13 +101,18 @@ export const constantRoutes: RouteRecordRaw[] = [
     meta: {
       title: '测试',
       svgIcon: 'setting',
-      roles: ['admin'],
     },
     children: [
       {
         path: '/test',
         name: 'test',
-        component: () => import('@/views-back/test/test.vue'),
+        component: () => import('@/views/test/test.vue'),
+        meta: { title: '测试', icon: 'el-icon-s-marketing', svgIcon: 'DocumentChecked', badge: true },
+      },
+      {
+        path: '/test',
+        name: 'test',
+        component: () => import('@/views/test/test.vue'),
         meta: { title: '测试', icon: 'el-icon-s-marketing', svgIcon: 'DocumentChecked', badge: true },
       },
     ],

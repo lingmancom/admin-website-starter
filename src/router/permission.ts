@@ -23,6 +23,8 @@ router.beforeEach(async (to, _from, next) => {
   NProgress.start()
   const userStore = useUserStoreHook()
   const permissionStore = usePermissionStoreHook()
+  //  TODO: 为了方便测试，这里设置了默认角色为 1
+  permissionStore.setRoutes(1)
   const token = getToken()
 
   console.log(to.path, _from.path)

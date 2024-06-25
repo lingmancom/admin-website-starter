@@ -13,6 +13,12 @@ const props = withDefaults(defineProps<Props>(), {
 
 const settingsStore = useSettingsStore()
 const { layoutMode } = storeToRefs(settingsStore)
+const isTop = computed(() => layoutMode.value === 'top')
+const isLeftTop = computed(() => layoutMode.value === 'left-top')
+
+const globalStore = useGlobalDataStore()
+
+const dynamicLogo = computed(() => encodeURI(globalStore.system.logo) || logo)
 
 const title = import.meta.env.VITE_APP_TITLE
 </script>
@@ -25,8 +31,8 @@ const title = import.meta.env.VITE_APP_TITLE
       </router-link>
       <router-link v-else key="expand" to="/">
         <div class="h-full w-220px flex justify-center items-center truncate">
-          <img class="w40 h40 mr2" src="@/assets/logo.png">
-          <h3 class="c-#fff">
+          <img class="w30 h30 mr8" :src="dynamicLogo">
+          <h3 :class="isTop || isLeftTop ? 'text-#001428' : 'text-light'">
             {{ title }}
           </h3>
         </div>

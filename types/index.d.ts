@@ -11,6 +11,12 @@ declare interface Window {
   __BIG_SCREEN: string
   __TITLE: string
   __IS_QY_LOGIN: boolean
+  __browser_32: string
+  __browser_64: string
+  __PREVIEW_ADDRESS: string
+  __DOOR_API_ADDRESS: string
+  parsePostAddress: function
+  docEditor: any
   onresize: () => void
 }
 declare interface Screen {
@@ -58,15 +64,9 @@ interface AppRouterRaw {
   beforeEnter?: () => string | boolean
 }
 
-interface Tag {
-  path: string
-  name: string
-  title: string
-  meta: RouteMeta
-  fullPath: string
-  query?: import('vue-router').LocationQuery
-  params?: import('vue-router').RouteParams
-}
+type DataType<T extends (...args: any[]) => any> = Parameters<T>[0]
+
+type ListItemType<T extends (...args: any[]) => any> = ReturnType<T>['data']['data'][0]
 
 interface Ws<T> {
   action: string

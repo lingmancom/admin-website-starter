@@ -2,6 +2,7 @@ import './initialize'
 
 // core
 import { createApp } from 'vue'
+import PDFObjectPlugin from 'pdfobject-vue'
 import App from '@/App.vue'
 import store from '@/store'
 import router from '@/router'
@@ -29,7 +30,7 @@ loadSvg(app)
 /** 加载自定义指令 */
 loadDirectives(app)
 
-app.use(store).use(router)
+app.use(store).use(router).use(PDFObjectPlugin)
 router.isReady().then(() => {
   app.mount('#app')
 })

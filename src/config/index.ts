@@ -1,3 +1,12 @@
+import PPT_IMG from '@/assets/images/ppt_img.png'
+import PDF_IMG from '@/assets/images/pdf_img.png'
+import XLS_IMG from '@/assets/images/xls_img.png'
+import DOC_IMG from '@/assets/images/doc_img.png'
+import ZIP_IMG from '@/assets/images/c_zip.png'
+import MP3_IMG from '@/assets/images/c_mp3.png'
+import MP4_IMG from '@/assets/images/c_mp4.png'
+import OTHER_IMG from '@/assets/images/ajgzgl.png'
+
 export enum TypeMeta {
   计算机 = 1,
   电子设备类 = 2,
@@ -188,4 +197,57 @@ export enum FileKindMeta {
   压缩文件 = 'zip',
   excel文件 = 'xlsx',
   pdf文件 = 'pdf',
+  IMAGE = 'image',
+  音频 = 'mp3',
+}
+
+export enum DoorMeta {
+  开门 = 'openDoor',
+  关门 = 'closeDoor',
+}
+
+export enum ActionMeta {
+  查看 = '查看',
+  添加 = '添加',
+  编辑 = '编辑',
+  归还 = '归还',
+}
+
+export const statusMetaBorrow = {
+  0: {
+    label: '在库中',
+    type: 'success',
+  },
+  1: {
+    label: '在库中',
+    type: 'success',
+  },
+  2: {
+    label: '已借出',
+    type: 'danger',
+  },
+}
+
+export const FileCoverMeta = [
+  // 判断是否是图片
+  { reg: /^.(png|jpg|jpeg|gif|bmp)$/, img: '', kind: FileKindMeta.IMAGE },
+
+  // 判断是否是音频
+  { reg: /^.(mp3|wav|wma|ogg)$/, img: MP3_IMG, kind: FileKindMeta.音频 },
+  // 判断是否是视频
+  { reg: /^.(mp4|avi|rmvb|rm|flv|wmv)$/, img: MP4_IMG, kind: FileKindMeta.视频文件 },
+  // 判断是否是压缩包 包括左右压缩包 不仅仅是zip
+  { reg: /^.(zip|rar|7z)$/, img: ZIP_IMG, kind: FileKindMeta.压缩文件 },
+  { reg: /^.pdf$/, img: PDF_IMG, kind: FileKindMeta.pdf文件 },
+  { reg: /^.pp[ts]x?$/, img: PPT_IMG, kind: FileKindMeta.PPT文件 },
+  { reg: /^.xlsx?$/, img: XLS_IMG, kind: FileKindMeta.excel文件 },
+  { reg: /^.docx?$/, img: DOC_IMG, kind: FileKindMeta.DOC文件 },
+  { reg: /.*/, img: OTHER_IMG, kind: FileKindMeta.未知文件类型 },
+]
+
+export const documentTypeMap = {
+  word: ['doc', 'docm', 'docx', 'docxf', 'dot', 'dotm', 'dotx', 'epub', 'fb2', 'fodt', 'htm', 'html', 'mht', 'mhtml', 'odt', 'oform', 'ott', 'rtf', 'stw', 'sxw', 'txt', 'wps', 'wpt', 'xml'],
+  cell: ['csv', 'et', 'ett', 'fods', 'ods', 'ots', 'sxc', 'xls', 'xlsb', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx', 'xml'],
+  slide: ['dps', 'dpt', 'fodp', 'odp', 'otp', 'pot', 'potm', 'potx', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx', 'sxi'],
+  pdf: ['djvu', 'oxps', 'pdf', 'xps'],
 }

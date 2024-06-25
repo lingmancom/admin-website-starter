@@ -48,8 +48,9 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       Components({
         extensions: ['vue', 'tsx'],
         resolvers: [
-          ElementPlusResolver(),
-          // (componentName) => { console.log(componentName) },
+          ElementPlusResolver({
+            exclude: /ElFormItem/,
+          }),
         ],
         dts: true,
       }),
@@ -102,7 +103,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
     },
     server: {
       host: true, // host: "0.0.0.0"
-      port: 2333,
+      port: 9202,
     },
     build: {
       /** 单个 chunk 文件的大小超过 2048KB 时发出警告 */
@@ -140,6 +141,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       environment: 'jsdom',
     },
     optimizeDeps: {
+      exclude: ['canvas', 'path2d', 'pdfjs'],
       include: [
         'lingman/vue',
         'vue',
@@ -251,6 +253,9 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
         'element-plus/es/components/loading/style/css',
         'element-plus/es/components/base/style/css',
         'element-plus/es/components/config-provider/style/css',
+        'element-plus/es/components/progress/style/css',
+        'element-plus/es/components/carousel/style/css',
+        'element-plus/es/components/carousel-item/style/css',
       ],
     },
   }

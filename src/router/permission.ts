@@ -14,8 +14,20 @@ import { toLogin } from '@/utils'
 NProgress.configure({ showSpinner: false })
 
 const whiteList = [
-  '/login',
-  '/test',
+  '/home',
+  '/commonPage',
+  '/policyAnswering',
+  '/policyAnsweringDetail',
+  '/templateDownloadFront',
+  '/website-navigation',
+  '/newsStatistics',
+  '/agencies-trends',
+  '/article-show',
+  '/more',
+  '/file',
+  '/template1',
+  '/template2',
+  '/template3',
 ]
 
 router.beforeEach(async (to, _from, next) => {
@@ -23,8 +35,6 @@ router.beforeEach(async (to, _from, next) => {
   NProgress.start()
   const userStore = useUserStoreHook()
   const permissionStore = usePermissionStoreHook()
-  //  TODO: 为了方便测试，这里设置了默认角色为 1
-  permissionStore.setRoutes(1)
   const token = getToken()
 
   console.log(to.path, _from.path)

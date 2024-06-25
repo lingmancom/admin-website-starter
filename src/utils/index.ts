@@ -140,3 +140,9 @@ export function handleScroll() {
   else
     removeClass(toolbar, 'editor-toolbar-fixed')
 }
+
+export async function copyText(text: any) {
+  const { copy } = useClipboard()
+  await copy(text)
+  ElMessage.success('复制成功')
+}

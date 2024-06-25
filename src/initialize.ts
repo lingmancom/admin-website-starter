@@ -4,9 +4,17 @@ import { Boot } from '@wangeditor/editor'
 import attachmentModule from '@wangeditor/plugin-upload-attachment'
 import { useUserStore } from '@/store/modules/user'
 
-Object.assign(cfg.request , {
+Object.assign(cfg.request, {
   getApiRoot: () => {
-    return window.__BASE_API
+    let address
+
+    if (window.__BASE_API.startsWith('http'))
+      address = window.__BASE_API
+
+    else
+      address = `${window.location.protocol}//${window.location.hostname}${window.__BASE_API}`
+
+    return address
   },
   getHttpHeader: () => {
     const accountStore = useUserStore()

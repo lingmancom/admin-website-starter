@@ -5,7 +5,7 @@ import password from '@/assets/icon/password.png'
 
 const globalStore = useGlobalDataStore()
 
-const dynamicLoginBg = computed(() => globalStore.system.login || bg)
+const dynamicLoginBg = computed(() => encodeURI(globalStore.system.login) || bg)
 
 const loginFormDom = ref(null as any)
 const showPassword = ref(true)
@@ -41,7 +41,7 @@ function handleLogin() {
       const userStore = useUserStore()
 
       userStore.login(loginForm).then(() => {
-        router.push({ path: unref(redirect) || '/materialManage/info' })
+        router.push({ path: unref(redirect) || '/dashboard' })
         loading.value = false
       }).catch((e) => {
         // loadUid()

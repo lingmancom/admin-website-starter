@@ -38,6 +38,9 @@ interface IUserInfo {
   count: number
   status: number
   position: any
+  file: boolean
+  profile: boolean
+  openDoor: boolean
 }
 
 export const useUserStore = defineStore('user', () => {
@@ -67,11 +70,12 @@ export const useUserStore = defineStore('user', () => {
 
   /** 获取用户详情 */
   const getInfo = async () => {
-    const data = await ApiAccount.getUserInfo()
+    const [data, permission] = await Promise.all([ApiAccount.getUserInfo(), APIPermission.getPermissionListByUser()])
+    permissionStore.permissions = permission || []
     Object.assign(userInfo, data)
     // 验证返回的 roles 是否为一个非空数组，否则塞入一个没有任何作用的默认角色，防止路由守卫逻辑进入无限循环
     // roles.value = data.roles?.length > 0 ? data.roles : routeSettings.defaultRoles
-    roles.value = data.role ? [data.role] : routeSettings.defaultRoles
+    roles.value = data.level?.length > 0 ? data.level : routeSettings.defaultRoles
     if (data.isAdmin === 1)
       roles.value.push(0)
   }

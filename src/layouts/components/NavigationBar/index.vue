@@ -58,9 +58,9 @@ function logout() {
             <el-dropdown-item @click="userStore.passwordDialogVisible = true">
               <span style="display: block">修改密码</span>
             </el-dropdown-item>
-            <el-dropdown-item @click="userStore.userCenterDialogVisible = true">
+            <!-- <el-dropdown-item @click="userStore.userCenterDialogVisible = true">
               <span style="display: block">个人中心</span>
-            </el-dropdown-item>
+            </el-dropdown-item> -->
             <el-dropdown-item divided @click="logout">
               <span style="display: block">退出登录</span>
             </el-dropdown-item>

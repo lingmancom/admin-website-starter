@@ -46,17 +46,15 @@ export const constantRoutes: RouteRecordRaw[] = [
   },
   {
     path: '/',
-    component: () => import('@/views/index.vue'),
-    meta: {
-      hidden: true,
-    },
-    redirect: '/test',
+    component: Layout,
+    redirect: '/dashboard',
+    meta: {},
     children: [
       {
-        path: 'home',
-        name: 'home',
-        component: () => import('@/views/home/home.vue'),
-        meta: {},
+        path: 'dashboard',
+        name: 'dashboard',
+        component: () => import('@/views/dashboard/dashboard.vue'),
+        meta: { title: '工作台', icon: 'el-icon-s-marketing', svgIcon: 'DocumentChecked', badge: true },
       },
     ],
   },
@@ -78,22 +76,6 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
     ],
   },
-  {
-    path: '/system',
-    component: Layout,
-    meta: {
-      title: '系统管理',
-      svgIcon: 'setting',
-    },
-    children: [
-      {
-        path: '/test',
-        name: 'test',
-        component: () => import('@/views/test/test.vue'),
-        meta: { title: '测试', icon: 'el-icon-s-marketing', svgIcon: 'DocumentChecked', badge: true },
-      },
-    ],
-  },
 
   {
     path: '/test',
@@ -101,6 +83,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     meta: {
       title: '测试',
       svgIcon: 'setting',
+      hidden: import.meta.env.MODE !== 'development',
     },
     children: [
       {
@@ -109,15 +92,17 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import('@/views/test/test.vue'),
         meta: { title: '测试', icon: 'el-icon-s-marketing', svgIcon: 'DocumentChecked', badge: true },
       },
-      {
-        path: '/test',
-        name: 'test',
-        component: () => import('@/views/test/test.vue'),
-        meta: { title: '测试', icon: 'el-icon-s-marketing', svgIcon: 'DocumentChecked', badge: true },
-      },
     ],
   },
-
+  {
+    path: '/view_word',
+    component: () => import('@/views/editor/viewDocument.vue'),
+    meta: {
+      title: '预览',
+      svgIcon: 'setting',
+      hidden: true,
+    },
+  },
 ]
 
 /**
@@ -127,6 +112,82 @@ export const constantRoutes: RouteRecordRaw[] = [
  */
 export const asyncRoutes: RouteRecordRaw[] = [
   {
+    path: '/system-setting',
+    component: Layout,
+    name: 'system-setting',
+    meta: {
+      title: '系统设置',
+      svgIcon: 'setting',
+      permission: 'system',
+      alwaysShow: true,
+    },
+    children: [
+      {
+        path: 'department',
+        name: 'department',
+        component: () => import('@/views/system-setting/department.vue'),
+        meta: {
+          title: '组织架构',
+          permission: 'system:department',
+        },
+      },
+      {
+        path: 'role',
+        name: 'role',
+        component: () => import('@/views/system-setting/role.vue'),
+        meta: {
+          title: '角色权限',
+          permission: 'system:role',
+        },
+      },
+      {
+        path: 'user',
+        name: 'user',
+        component: () => import('@/views/system-setting/user-manage.vue'),
+        meta: {
+          title: '用户管理',
+          permission: 'system:user',
+        },
+      },
+      {
+        path: 'logo',
+        name: 'logo',
+        component: () => import('@/views/system-setting/logo.vue'),
+        meta: {
+          title: 'Logo设置',
+          permission: 'system:logo',
+        },
+      },
+      {
+        path: 'log',
+        name: 'log',
+        component: () => import('@/views/system-setting/operation-log.vue'),
+        meta: {
+          title: '操作日志',
+          permission: 'system:log',
+        },
+      },
+      {
+        path: 'data-backup',
+        name: 'data-backup',
+        component: () => import('@/views/system-setting/data-backup.vue'),
+        meta: {
+          title: '数据备份',
+          permission: 'system:data-backup',
+        },
+      },
+      {
+        path: 'permission',
+        name: 'permission',
+        component: () => import('@/views/system-setting/permission-manage.vue'),
+        meta: {
+          title: '权限管理',
+          permission: 'system:permission',
+        },
+      },
+    ],
+  },
+  {
     path: '/:pathMatch(.*)*', // Must put the 'ErrorPage' route at the end, 必须将 'ErrorPage' 路由放在最后
     redirect: '/404',
     name: 'ErrorPage',
@@ -134,5 +195,4 @@ export const asyncRoutes: RouteRecordRaw[] = [
       hidden: true,
     },
   },
-
 ]

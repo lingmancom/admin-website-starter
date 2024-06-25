@@ -27,10 +27,12 @@
       "element-plus/global",
       "vitest"
     ],
+    "allowImportingTsExtensions": true,
     /** TS 严格模式 */
     "strict": false,
     "noImplicitAny": false,
     "importHelpers": true,
+    "noEmit": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
